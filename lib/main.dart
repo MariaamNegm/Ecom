@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import'HomeScreen.dart';
@@ -21,7 +22,16 @@ class MyApp extends StatelessWidget {
         primaryColor:kPrimaryColor,
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
       ),
-      home: const LoginScreen(),
+      home:AnimatedSplashScreen(
+      duration: 4000,
+      splash: Image.asset("images/optimized_large_thumb_stage.jpg",width:double.infinity, fit:BoxFit.contain,),
+      nextScreen:LoginScreen(),
+      //calling the page which have the tab bar view as next screen
+      splashIconSize:double.infinity,
+      //make the icon to cover all space around
+      splashTransition: SplashTransition.fadeTransition,
+      backgroundColor:Colors.black87,
+    )
     );
   }
 }
